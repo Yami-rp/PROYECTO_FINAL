@@ -1,36 +1,27 @@
 import random
 
-def generarNombre(names, surnames):
-    nombre= random.choice(names)
-    apellido= random.choice(surnames)
-    return f"{nombre} {apellido}"
+# Listas predefinidas de nombres y apellidos
+nombres = ["Carlos", "Lucía", "Martín", "Sofía", "Fernando", "Valeria", "Javier", "Mariana"]
+apellidos = ["Gómez", "Fernández", "López", "Martínez", "Pérez", "Sánchez", "Rodríguez", "Torres"]
 
-def añadirNombre(lista,tipo):
-    new = input(f"agregar un nuevo {tipo} para agregar: ").strip()
-    if new:
-      lista.append(new)
-    print(f"{type.catalize()} añadido correctamente\n")
-    print("acceso no valido. \n")
+def agregar_nombre():
+    nombre = input("Ingrese un nuevo nombre (o presione Enter para omitir): ").strip()
+    if nombre:
+        nombres.append(nombre)
+    
+def agregar_apellido():
+    apellido = input("Ingrese un nuevo apellido (o presione Enter para omitir): ").strip()
+    if apellido:
+        apellidos.append(apellido)
 
-def main():
-    names= ["Sofia", "Flor", "Rebeca", "Dinora", "Diana", "Natalia", "Marisol"]
-    surnames=["Martinez", "Miranda", "Moran", "Hernandez", "Gonzales", "Santos","Mejia"]
-    while True:
-        print("\n Menu:")
-        print("1- Generar nombre aleatorio")
-        print("2- Añadir nombre personalizado")
-        print("3- Añadir apellido personalizado")
-        print("4- Exit")
+def generar_nombre():
+    return f"{random.choice(nombres)} {random.choice(apellidos)}"
 
-        option = input("Choose a option: ")
-        if option == "1":
-            print(f"Nombre generado: {generarNombre(names, surnames)}\n")
-        elif option == "2":
-            añadirNombre(names, "nombre")
-        elif option == "3":
-            añadirNombre(surnames, "apellido")
-        elif option == "4":
-            print("Saliedno del programa...")
-            break
-        else:
-            print("opcion incorrecta. Por favor intente de nuevo.\n")
+# Permitir al usuario agregar nombres y apellidos personalizados
+print("Personalización de nombres y apellidos:")
+agregar_nombre()
+agregar_apellido()
+
+# Generar y mostrar un nombre aleatorio
+print("\nNombre aleatorio generado:")
+print(generar_nombre())
